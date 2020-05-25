@@ -6,9 +6,13 @@ const router = express.Router();
 // @route   POST /user/register
 // @desc    Log in to existing account
 // @access  Public
-router.post('/signup', (req, res) => {
+router.post('/register', (req, res) => {
+
+    const { email, password } = req.body;
+
     res.status(200).json({
-        msg: "successful signup"
+        msg: "successful signup",
+        userinfo : req.body
     })
 });
 
@@ -18,8 +22,12 @@ router.post('/signup', (req, res) => {
 // @desc    Log in to existing account / Returning JWT Token
 // @access  Public
 router.post('/login', (req, res) => {
+
+    const { email, password } = req.body;
+
     res.status(200).json({
-        msg: "successful login"
+        msg: "successful login",
+        userinfo : req.body
     })
 });
 

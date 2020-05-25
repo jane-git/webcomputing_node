@@ -16,8 +16,13 @@ router.get('/symbols', (req, res) => {
 // @desc    Returns the latest entry for a particular stock searched by symbol (1-5 upper case letters).
 // @access  Public
 router.get('/:symbols', (req, res) => {
+
+    // domain name
+    const symbolName = req.params.symbols;
+
     res.status(200).json({
-        msg: "successful stock symbol data"
+        msg: "successful stock symbol data",
+        symbolInfo : symbolName
     })
 });
 
@@ -25,8 +30,13 @@ router.get('/:symbols', (req, res) => {
 // @desc    Return entries of stock searched by symbol, optionally filtered by date.
 // @access  Private
 router.get('/authed/:symbol', (req, res) => {
+
+    // domain name
+    const symbolName = req.params.symbols;
+
     res.status(200).json({
-        msg: "successful stock history of symbol data"
+        msg: "successful stocks history of symbol data",
+        symbolInfo : symbolName
     })
 });
 

@@ -8,6 +8,14 @@ const userRouter = require("./routes/stock");
 const app = express();
 
 
+
+// bodyParser middleware
+//server response
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
 app.use('/user', userRouter);
 app.use('/stocks', stockRouter);
  
