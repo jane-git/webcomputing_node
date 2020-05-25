@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const stockRouter = require("./routes/stock");
 const userRouter = require("./routes/stock");
@@ -20,6 +22,6 @@ app.use('/user', userRouter);
 app.use('/stocks', stockRouter);
  
 
-const PORT = 5000;
+const PORT = process.env.PORT || 7000;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
